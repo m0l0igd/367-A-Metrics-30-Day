@@ -1,0 +1,14 @@
+tech_name|role|total_wos|wos_1p|wos_3p|dtc|dtc_hp|hp_wos|self_perf|response_pct|ftf_pct|sla_under|sla_over|sla_missing|recalls|stores
+Stephen Duderstadt|GM|19|19|0|2.29|NULL|0|100.00|100.00|89.50|19|0|0|0|1
+Thomas Compton|GM|30|29|1|2.30|NULL|0|97.44|94.74|79.30|28|2|0|0|2
+Jorge Altamirano|GM|50|48|2|1.69|NULL|0|96.30|89.47|98.00|43|5|0|1|2
+Kody Ewing|GM|51|48|3|2.42|NULL|0|94.64|97.22|95.80|46|2|0|2|2
+James Bruening|GM|29|24|5|3.15|0.13|1|83.87|92.31|75.00|22|2|0|1|2
+Nicholas Grow|GM|53|48|5|4.56|0.08|1|92.42|87.80|78.00|42|7|0|2|2
+Victor Pino|GM|23|21|2|3.77|0.10|1|88.46|70.59|52.40|17|5|0|1|2
+Eian Palomino|HVACR|10|10|0|0.75|0.13|2|100.00|100.00|100.00|10|0|0|0|2
+Frank Shipp|HVACR|20|20|0|1.59|0.06|4|100.00|100.00|90.00|20|0|0|1|2
+Robert Howard|HVACR|12|12|0|1.41|0.17|2|100.00|87.50|100.00|10|2|0|0|3
+Mario Pelayo|HVACR|23|23|0|3.68|0.65|4|100.00|78.57|73.90|18|5|0|0|3
+Richard Palacios|HVACR|16|16|0|4.43|1.60|2|100.00|90.00|62.50|14|2|0|0|3
+Richard Sanchez|FE|18|18|0|3.74|NULL|0|100.00|88.89|61.11|16|2|0|1|9

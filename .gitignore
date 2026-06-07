@@ -1,0 +1,14 @@
+# output/ is generated — never commit it
+output/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db

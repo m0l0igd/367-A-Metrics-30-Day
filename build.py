@@ -1,0 +1,235 @@
+"""build.py — Reads output/payload.json, writes output/367A_Metrics_Final.html"""
+import json
+from pathlib import Path
+
+ROOT    = Path(__file__).parent
+PAYLOAD = ROOT / "output" / "payload.json"
+OUT     = ROOT / "output" / "367A_Metrics_Final.html"
+
+d     = json.loads(PAYLOAD.read_text(encoding='utf-8'))
+D_str = json.dumps(d, separators=(',', ':'))
+
+HTML = r"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>367-A Tech Metrics | """ + d['meta']['period'] + r"""</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surf:#161b22;--s2:#21262d;--bdr:#30363d;--txt:#e6edf3;--sub:#8b949e;--blue:#58a6ff;--grn:#3fb950;--red:#f85149;--amb:#d29922;--wmt:#0053e2;--gld:#ffc220}
+body.light{--bg:#f6f8fa;--surf:#fff;--s2:#f6f8fa;--bdr:#d0d7de;--txt:#1f2328;--sub:#57606a;--blue:#0053e2;--grn:#2a8703;--red:#ea1100;--amb:#995213}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}
+.hdr{background:var(--wmt)}.hdr-in{max-width:1400px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;gap:12px;flex-wrap:wrap}
+.hdr h1{font-size:1.15rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
+.hdr-r{text-align:right;font-size:.75rem;color:rgba(255,255,255,.85);line-height:1.75}.hdr-r b{color:var(--gld)}
+.tbar{background:var(--surf);border-bottom:1px solid var(--bdr)}.tin{max-width:1400px;margin:auto;display:flex;overflow-x:auto}
+.kpi{flex:1;min-width:100px;padding:9px 14px;border-right:1px solid var(--bdr);text-align:center}.kpi:last-child{border:none}
+.kl{font-size:.61rem;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}.kv{font-size:1.3rem;font-weight:700;line-height:1.15}
+.ks{font-size:.61rem;color:var(--sub)}.ok{color:var(--grn)}.warn{color:var(--amb)}.hi{color:var(--blue)}
+.ctrl{max-width:1400px;margin:11px auto;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.srch{flex:1;min-width:150px;max-width:220px;background:var(--s2);border:1px solid var(--bdr);border-radius:6px;padding:6px 11px;color:var(--txt);font-size:.83rem}
+.srch:focus{outline:none;border-color:var(--blue)}
+.pills{display:flex;gap:5px;flex-wrap:wrap}
+.pill{background:var(--s2);border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;font-size:.73rem;color:var(--sub);cursor:pointer;transition:.15s;white-space:nowrap}
+.pill:hover{border-color:var(--blue);color:var(--blue)}.pill.on{background:var(--wmt);border-color:var(--wmt);color:#fff}
+.cbtn{background:var(--s2);border:1px solid var(--bdr);border-radius:6px;padding:5px 11px;font-size:.73rem;color:var(--sub);cursor:pointer;white-space:nowrap}
+.cbtn:hover{border-color:var(--blue);color:var(--blue)}
+.sec{max-width:1400px;margin:0 auto 18px;padding:0 24px}.sec.sh{display:none}
+.shdr{display:flex;justify-content:space-between;align-items:center;background:var(--surf);border:1px solid var(--bdr);border-radius:8px 8px 0 0;padding:9px 15px;gap:8px;flex-wrap:wrap}
+.sl{display:flex;align-items:center;gap:9px}.sico{font-size:1.1rem}.stitle{font-weight:700;font-size:.92rem}.scnt{font-size:.67rem;color:var(--sub)}
+.podium{display:flex;gap:5px;flex-wrap:wrap}.pod{background:var(--s2);border:1px solid var(--bdr);border-radius:13px;padding:3px 9px;font-size:.67rem;white-space:nowrap}
+.tbl{width:100%;border-collapse:collapse;background:var(--surf);border:1px solid var(--bdr);border-top:none;border-radius:0 0 8px 8px;overflow:hidden}
+.tbl thead tr{background:var(--s2)}.tbl th{padding:7px 9px;font-size:.61rem;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--bdr);white-space:nowrap}
+.tbl th .g{display:block;color:var(--grn);font-size:.57rem;font-weight:400;text-transform:none;letter-spacing:0;margin-top:1px}
+.tbl tbody tr.tr{cursor:pointer;border-bottom:1px solid var(--bdr);transition:background .12s}
+.tbl tbody tr.tr:hover,.tbl tbody tr.tr.open{background:var(--s2)}
+.tbl tr.det{background:var(--bg)}.tbl td{padding:8px 9px;vertical-align:middle}.hide{display:none}
+.nc{display:flex;align-items:center;gap:8px}
+.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#fff;flex-shrink:0}
+.tn{font-weight:600;font-size:.85rem}.ts{font-size:.64rem;color:var(--sub)}
+.dot{width:7px;height:7px;border-radius:50%;margin-left:auto;flex-shrink:0;cursor:help}
+.bw{min-width:98px}.bb{background:var(--s2);border:1px solid var(--bdr);border-radius:4px;height:19px;position:relative;overflow:hidden}
+.bf{height:100%;border-radius:3px}.bv{position:absolute;right:4px;top:1px;font-size:.66rem;font-weight:700}.bl{font-size:.59rem;color:var(--sub);margin-top:1px}
+.sc{background:var(--s2);border:1px solid var(--bdr);border-radius:10px;padding:2px 8px;font-size:.67rem;color:var(--sub)}
+.dp{padding:13px 15px;display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:9px}
+.dc{background:var(--surf);border:1px solid var(--bdr);border-radius:7px;padding:9px 11px}
+.dl{font-size:.59rem;text-transform:uppercase;color:var(--sub);letter-spacing:.04em;margin-bottom:2px}
+.dv{font-size:1.1rem;font-weight:700}.dg{font-size:.61rem;color:var(--sub);margin-top:2px}.ds{font-size:.61rem;color:var(--sub);margin-top:3px}
+.dv.ok{color:var(--grn)}.dv.bad{color:var(--red)}
+.lbtn{display:inline-block;margin-top:6px;background:var(--wmt);color:#fff;border:none;border-radius:5px;padding:4px 11px;font-size:.67rem;cursor:pointer}
+.lbtn:hover{opacity:.85}
+.note{max-width:1400px;margin:0 auto 28px;padding:0 24px}
+.nb{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--blue);border-radius:6px;padding:11px 15px;font-size:.71rem;color:var(--sub);line-height:1.8}
+.nb b{color:var(--txt)}.nb code{background:var(--s2);border-radius:3px;padding:1px 4px;font-size:.67rem}
+.rbadge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.75rem;font-weight:800;border:2px solid}
+.rbadge.r1{background:#ffc220;color:#000;border-color:#e6a800}
+.rbadge.r2{background:#c0c0c0;color:#000;border-color:#a0a0a0}
+.rbadge.r3{background:#cd7f32;color:#fff;border-color:#b36900}
+.rbadge.rn{background:var(--s2);color:var(--sub);border-color:var(--bdr);font-size:.68rem}
+@media(max-width:680px){.tbl th:nth-child(n+5){display:none}.tbl td:nth-child(n+5){display:none}.dp{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><div id="root"></div>
+<script>
+const D=__PAYLOAD__;
+const RC={GM:'#0053e2',HVACR:'#0f7b6c',FE:'#b45309'};
+const RI={GM:'🔧',HVACR:'❄️',FE:'🍽️'};
+const RL={GM:'GM Technicians',HVACR:'HVACR Technicians',FE:'Food Equipment Technicians'};
+let curRole='All',dark=true;
+const f2=(v,d=2)=>v==null?'—':Number(v).toFixed(d);
+const pct=v=>v==null?'—':Number(v).toFixed(1)+'%';
+const isOk=(v,g,lo)=>lo?v<=g:v>=g;
+const gc=b=>b?'var(--grn)':'var(--red)';
+const slug=n=>n.replace(/\s+/g,'-');
+
+function rankBadge(r){
+  if(r===1)return'<span class="rbadge r1">🥇</span>';
+  if(r===2)return'<span class="rbadge r2">🥈</span>';
+  if(r===3)return'<span class="rbadge r3">🥉</span>';
+  return`<span class="rbadge rn">#${r}</span>`;
+}
+function bar(val,goal,maxV,lo,suf){
+  if(val==null)return'<div class="bw"><span style="color:var(--sub)">—</span></div>';
+  const ok=isOk(val,goal,lo),w=Math.min(Math.abs(val)/maxV*100,100).toFixed(1),col=gc(ok);
+  const lbl=suf==='d'?f2(val)+'d':pct(val);
+  return`<div class="bw"><div class="bb"><div class="bf" style="width:${w}%;background:${col};opacity:.78"></div><span class="bv" style="color:${col}">${lbl}</span></div><div class="bl">${ok?'✓ on goal':'✗ off goal'}</div></div>`;
+}
+function teamStrip(){
+  const{meta,goals,techs}=D,t1=techs.filter(t=>t.wos_1p>0||t.dtc!=null);
+  const ad=t1.reduce((s,t)=>s+(t.dtc||0),0)/t1.length;
+  const ar=t1.reduce((s,t)=>s+(t.response||0),0)/t1.length;
+  const as_=t1.reduce((s,t)=>s+(t.self_perf||0),0)/t1.length;
+  const af=t1.filter(t=>t.ftf!=null).reduce((s,t)=>s+(t.ftf||0),0)/Math.max(1,t1.filter(t=>t.ftf!=null).length);
+  return`<div class="tbar"><div class="tin">
+    <div class="kpi"><div class="kl">Team DTC</div><div class="kv ${isOk(ad,goals.dtc,true)?'ok':'warn'}">${f2(ad)}d</div><div class="ks">Goal ≤ ${goals.dtc}d</div></div>
+    <div class="kpi"><div class="kl">Response</div><div class="kv ${isOk(ar,goals.response,false)?'ok':'warn'}">${pct(ar)}</div><div class="ks">Goal ≥ ${goals.response}%</div></div>
+    <div class="kpi"><div class="kl">Self Perf</div><div class="kv ${isOk(as_,goals.self_perf,false)?'ok':'warn'}">${pct(as_)}</div><div class="ks">Goal ≥ ${goals.self_perf}%</div></div>
+    <div class="kpi"><div class="kl">First Time Fix</div><div class="kv ${isOk(af,goals.ftf,false)?'ok':'warn'}">${pct(af)}</div><div class="ks">Goal ≥ ${goals.ftf}%</div></div>
+    <div class="kpi"><div class="kl">1P Work Orders</div><div class="kv hi">${meta.total_1p}</div><div class="ks">${meta.total_3p} 3P · ${meta.total_wos} total</div></div>
+    <div class="kpi"><div class="kl">Technicians</div><div class="kv hi">${meta.n_techs}</div><div class="ks">3 roles · Region ${meta.region}</div></div>
+    <div class="kpi"><div class="kl">Period (30 days)</div><div class="kv" style="font-size:.85rem;padding-top:3px">${meta.period}</div><div class="ks">Refreshed ${meta.refresh}</div></div>
+  </div></div>`;
+}
+function controls(){
+  const roles=[...new Set(D.techs.map(t=>t.role))];
+  const pills=['All',...roles].map(r=>{
+    const lbl=r==='All'?'All Roles':RI[r]+' '+r;
+    return`<button class="pill ${curRole===r?'on':''}" onclick="setRole('${r}',this)">${lbl}</button>`;
+  }).join('');
+  return`<div class="ctrl">
+    <input class="srch" id="srch" type="text" placeholder="🔍 Search technician…" oninput="doSearch(this.value)">
+    <div class="pills">${pills}</div>
+    <button class="cbtn" onclick="toggleTheme()">☀️/🌙 Theme</button>
+  </div>`;
+}
+function roleSection(role){
+  const grp=D.techs.filter(t=>t.role===role).sort((a,b)=>a.rank_overall-b.rank_overall);
+  const col=RC[role],t1=grp.reduce((s,t)=>s+t.wos_1p,0),t3=grp.reduce((s,t)=>s+t.wos_3p,0);
+  const top3=grp.slice(0,3).map((t,i)=>
+    `<span class="pod">${['🥇','🥈','🥉'][i]} ${t.name.split(' ')[0]} — DTC ${f2(t.dtc)}d · FTF ${pct(t.ftf)}</span>`).join('');
+  const rows=grp.map(t=>{
+    const allOk=[isOk(t.dtc,D.goals.dtc,true),isOk(t.response,D.goals.response,false),
+      isOk(t.self_perf,D.goals.self_perf,false)].every(Boolean);
+    const init=t.name.split(' ').map(w=>w[0]).slice(0,2).join(''),sl=slug(t.name);
+    const det=`<tr id="det-${sl}" class="det hide"><td colspan="8" style="padding:0"><div class="dp">
+      <div class="dc"><div class="dl">DTC</div>
+        <div class="dv ${isOk(t.dtc,D.goals.dtc,true)?'ok':'bad'}">${f2(t.dtc)}d</div>
+        <div class="dg">Goal ≤ ${D.goals.dtc}d · Rank #${t.rank_dtc}</div></div>
+      <div class="dc"><div class="dl">DTC HP</div>
+        <div class="dv ${t.dtc_hp==null||isOk(t.dtc_hp,D.goals.dtc_hp,true)?'ok':'bad'}">${f2(t.dtc_hp)}d</div>
+        <div class="dg">Goal ≤ ${D.goals.dtc_hp}d · Rank #${t.rank_dtc_hp||'—'}</div></div>
+      <div class="dc"><div class="dl">Response Time</div>
+        <div class="dv ${isOk(t.response,D.goals.response,false)?'ok':'bad'}">${pct(t.response)}</div>
+        <div class="dg">Goal ≥ ${D.goals.response}% · Rank #${t.rank_response}</div>
+        <div class="ds">✅ ${t.sla_under} Under &nbsp;❌ ${t.sla_over} Over &nbsp;⚠️ ${t.sla_missing} Missing</div></div>
+      <div class="dc"><div class="dl">Self Performance</div>
+        <div class="dv ${isOk(t.self_perf,D.goals.self_perf,false)?'ok':'bad'}">${pct(t.self_perf)}</div>
+        <div class="dg">Goal ≥ ${D.goals.self_perf}% · Rank #${t.rank_self_perf}</div>
+        <div class="ds">1P: ${t.wos_1p} &nbsp;3P: ${t.wos_3p} &nbsp;Total: ${t.wos}</div></div>
+      <div class="dc"><div class="dl">First Time Fix</div>
+        <div class="dv ${t.ftf==null||isOk(t.ftf,D.goals.ftf,false)?'ok':'bad'}">${pct(t.ftf)}</div>
+        <div class="dg">Goal ≥ ${D.goals.ftf}% · display only, not scored</div>
+        <div class="ds">Recalls: ${t.recalls}</div></div>
+      <div class="dc"><div class="dl">Stores</div>
+        <div class="dv">${t.stores}</div>
+        <div class="dg">stores covered this period</div></div>
+      <div class="dc" style="grid-column:1/-1">
+        <div class="dl">Composite Score — lower is better</div>
+        <div class="dv">${t.score} pts &nbsp;${rankBadge(t.rank_overall)}</div>
+        <div class="ds">DTC #${t.rank_dtc} + HP #${t.rank_dtc_hp} + Self #${t.rank_self_perf} + Response #${t.rank_response} = ${t.score} &nbsp;<span style="color:var(--amb);font-size:.58rem">(FTF not scored — matches MetricRank)</span></div>
+      </div>
+    </div></td></tr>`;
+    return`<tr class="tr" data-slug="${sl}" data-name="${t.name.toLowerCase()}" data-role="${role}" onclick="toggleDet('${sl}')">
+      <td style="text-align:center">${rankBadge(t.rank_overall)}</td>
+      <td><div class="nc">
+        <div class="av" style="background:${col}">${init}</div>
+        <div><div class="tn">${t.name}</div><div class="ts">${t.wos_1p} WOs${t.wos_3p?` +${t.wos_3p} 3P`:''} · ${t.stores} stores</div></div>
+        <div class="dot" style="background:${allOk?'var(--grn)':'var(--amb)'}" title="${allOk?'All goals met':'1+ goal missed'}"></div>
+      </div></td>
+      <td>${bar(t.dtc,D.goals.dtc,6,true,'d')}</td>
+      <td>${bar(t.dtc_hp,D.goals.dtc_hp,6,true,'d')}</td>
+      <td>${bar(t.response,D.goals.response,100,false,'%')}</td>
+      <td>${bar(t.self_perf,D.goals.self_perf,100,false,'%')}</td>
+      <td>${bar(t.ftf,D.goals.ftf,100,false,'%')}</td>
+      <td style="text-align:center"><span class="sc">${t.score}</span></td>
+    </tr>${det}`;
+  }).join('');
+  return`<div class="sec" id="sec-${role}" data-role="${role}">
+    <div class="shdr" style="border-left:4px solid ${col}">
+      <div class="sl"><span class="sico">${RI[role]}</span>
+        <div><div class="stitle">${RL[role]}</div>
+        <div class="scnt">${grp.length} techs · ${t1} 1P + ${t3} 3P WOs · ranked by composite score (standard rank)</div></div>
+      </div><div class="podium">${top3}</div>
+    </div>
+    <table class="tbl"><thead><tr>
+      <th style="width:46px">Rank</th><th>Technician</th>
+      <th>DTC ↓<span class="g">≤ ${D.goals.dtc}d</span></th>
+      <th>DTC HP ↓<span class="g">≤ ${D.goals.dtc_hp}d</span></th>
+      <th>Response ↑<span class="g">≥ ${D.goals.response}%</span></th>
+      <th>Self Perf ↑<span class="g">≥ ${D.goals.self_perf}%</span></th>
+      <th>FTF ↑<span class="g">≥ ${D.goals.ftf}%</span></th>
+      <th style="width:62px">Score</th>
+    </tr></thead><tbody>${rows}</tbody></table>
+  </div>`;
+}
+function noteHTML(){
+  return`<div class="note"><div class="nb">
+    <b>Metric Definitions</b> ·
+    <b>DTC:</b> Avg days to complete (1P WOs). Goal ≤ 4d. ·
+    <b>DTC HP:</b> Same, high-priority only. Goal ≤ 1.9d. ·
+    <b>Response:</b> Under-SLA ÷ non-Missing WOs, 1P. Goal ≥ 85%. ·
+    <b>Self Perf:</b> 1P ÷ (1P+3P). Goal ≥ 72%. ·
+    <b>FTF:</b> No-recall WOs ÷ total 1P. Goal ≥ 85% — display only, not scored. ·
+    <b>Ranking:</b> Standard rank (ties share rank, gaps between groups). Score = sum of 4 metric ranks. Matches MetricRank/Tableau exactly. ·
+    <b>Source:</b> MetricRank Tableau dashboard — tableau-realestate.walmart.com · Region 367-A · Last 30 Days.
+  </div></div>`;
+}
+function render(){
+  if(!dark)document.body.classList.add('light');
+  const roles=[...new Set(D.techs.map(t=>t.role))];
+  document.getElementById('root').innerHTML=`
+    <div class="hdr"><div class="hdr-in">
+      <h1>📊 367-A Technician Performance</h1>
+      <div class="hdr-r">Manager: <b>${D.meta.manager}</b> &nbsp;|&nbsp; Region <b>${D.meta.region}</b> &nbsp;|&nbsp; <b>${D.meta.period}</b> &nbsp;|&nbsp; 30-Day Window</div>
+    </div></div>
+    ${teamStrip()}${controls()}${roles.map(roleSection).join('')}${noteHTML()}`;
+}
+function toggleDet(sl){
+  const d=document.getElementById('det-'+sl),r=document.querySelector('[data-slug="'+sl+'"]');
+  if(!d)return;d.classList.toggle('hide');r&&r.classList.toggle('open',!d.classList.contains('hide'));
+}
+function setRole(r,btn){curRole=r;
+  document.querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));btn&&btn.classList.add('on');
+  document.querySelectorAll('.sec[data-role]').forEach(s=>s.classList.toggle('sh',r!=='All'&&s.dataset.role!==r));}
+function doSearch(q){const ql=q.toLowerCase();
+  document.querySelectorAll('tr.tr').forEach(row=>{const show=!q||row.dataset.name.includes(ql);
+    row.classList.toggle('hide',!show);
+    const d=document.getElementById('det-'+row.dataset.slug);if(d&&!show)d.classList.add('hide');});}
+function toggleTheme(){dark=!dark;document.body.classList.toggle('light',!dark);}
+render();
+</script></body></html>"""
+
+HTML = HTML.replace('__PAYLOAD__', D_str)
+OUT.write_text(HTML, encoding='utf-8')
+print(f"Built: {OUT}  ({len(HTML)//1024} KB)")
+print(f"Period: {d['meta']['period']}  |  Techs: {d['meta']['n_techs']}")
