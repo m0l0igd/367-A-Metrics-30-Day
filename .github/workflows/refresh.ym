@@ -1,0 +1,48 @@
+name: Refresh 367-A Metrics Report
+
+on:
+  schedule:
+    # 06:00 UTC daily = ~1 AM Central — data is ready, Teams reports not blocked
+    - cron: "0 6 * * *"
+  workflow_dispatch:   # lets you hit "Run workflow" in the GitHub UI anytime
+
+permissions:
+  contents: write      # needed to push index.html back to the repo
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet -r requirements.txt
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Build fresh index.html
+        run: python build_report.py
+
+      - name: Commit updated report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "chore: auto-refresh metrics $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+      - name: Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
