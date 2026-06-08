@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>367-A Tech Metrics | May 08–Jun 07, 2026</title>
+<title>367-A Tech Metrics | May 09–Jun 08, 2026</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0d1117;--surf:#161b22;--s2:#21262d;--bdr:#30363d;--txt:#e6edf3;--sub:#8b949e;--blue:#58a6ff;--grn:#3fb950;--red:#f85149;--amb:#d29922;--wmt:#0053e2;--gld:#ffc220}
-body.light{--bg:#f6f8fa;--surf:#fff;--s2:#f6f8fa;--bdr:#d0d7de;--txt:#1f2328;--sub:#57606a;--blue:#0053e2;--grn:#2a8703;--red:#ea1100;--amb:#995213}
+:root{--bg:#0d1117;--surf:#161b22;--s2:#21262d;--bdr:#30363d;--txt:#e6edf3;--sub:#8b949e;--blue:#58a6ff;--grn:#3fb950;--red:#f85149;--amb:#d29922;--wmt:#0071ce;--gld:#ffc220}
+body.light{--bg:#f6f8fa;--surf:#fff;--s2:#f6f8fa;--bdr:#d0d7de;--txt:#1f2328;--sub:#57606a;--blue:#0969da;--grn:#1a7f37;--red:#cf222e;--amb:#9a6700}
 body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}
 .hdr{background:var(--wmt)}.hdr-in{max-width:1400px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;gap:12px;flex-wrap:wrap}
-.hdr h1{font-size:1.15rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
+.hdr h1{font-size:1.15rem;font-weight:700;color:#fff;gap:6px;display:flex;align-items:center}
 .hdr-r{text-align:right;font-size:.75rem;color:rgba(255,255,255,.85);line-height:1.75}.hdr-r b{color:var(--gld)}
 .tbar{background:var(--surf);border-bottom:1px solid var(--bdr)}.tin{max-width:1400px;margin:auto;display:flex;overflow-x:auto}
 .kpi{flex:1;min-width:100px;padding:9px 14px;border-right:1px solid var(--bdr);text-align:center}.kpi:last-child{border:none}
@@ -23,7 +23,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .pill:hover{border-color:var(--blue);color:var(--blue)}.pill.on{background:var(--wmt);border-color:var(--wmt);color:#fff}
 .cbtn{background:var(--s2);border:1px solid var(--bdr);border-radius:6px;padding:5px 11px;font-size:.73rem;color:var(--sub);cursor:pointer;white-space:nowrap}
 .cbtn:hover{border-color:var(--blue);color:var(--blue)}
-.sec{max-width:1400px;margin:0 auto 18px;padding:0 24px}.sec.sh{display:none}
+.sec{max-width400px;margin:0 auto 18px;padding:0 24px}.sec.sh{display:none}
 .shdr{display:flex;justify-content:space-between;align-items:center;background:var(--surf);border:1px solid var(--bdr);border-radius:8px 8px 0 0;padding:9px 15px;gap:8px;flex-wrap:wrap}
 .sl{display:flex;align-items:center;gap:9px}.sico{font-size:1.1rem}.stitle{font-weight:700;font-size:.92rem}.scnt{font-size:.67rem;color:var(--sub)}
 .podium{display:flex;gap:5px;flex-wrap:wrap}.pod{background:var(--s2);border:1px solid var(--bdr);border-radius:13px;padding:3px 9px;font-size:.67rem;white-space:nowrap}
@@ -39,7 +39,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .dot{width:7px;height:7px;border-radius:50%;margin-left:auto;flex-shrink:0;cursor:help}
 .bw{min-width:98px}.bb{background:var(--s2);border:1px solid var(--bdr);border-radius:4px;height:19px;position:relative;overflow:hidden}
 .bf{height:100%;border-radius:3px}.bv{position:absolute;right:4px;top:1px;font-size:.66rem;font-weight:700}.bl{font-size:.59rem;color:var(--sub);margin-top:1px}
-.sc{background:var(--s2);border:1px solid var(--bdr);border-radius:10px;padding:2px 8px;font-size:.67rem;color:var(--sub)}
+.sc{background:var(--s2);border:1px solid var(--bdr);border-radius:10px;padding:2px 8px;font-size:.67rem;color:var(--sub)}.med{font-size:1rem}
 .dp{padding:13px 15px;display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:9px}
 .dc{background:var(--surf);border:1px solid var(--bdr);border-radius:7px;padding:9px 11px}
 .dl{font-size:.59rem;text-transform:uppercase;color:var(--sub);letter-spacing:.04em;margin-bottom:2px}
@@ -50,6 +50,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .note{max-width:1400px;margin:0 auto 28px;padding:0 24px}
 .nb{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--blue);border-radius:6px;padding:11px 15px;font-size:.71rem;color:var(--sub);line-height:1.8}
 .nb b{color:var(--txt)}.nb code{background:var(--s2);border-radius:3px;padding:1px 4px;font-size:.67rem}
+/* Rank badge */
 .rbadge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.75rem;font-weight:800;border:2px solid}
 .rbadge.r1{background:#ffc220;color:#000;border-color:#e6a800}
 .rbadge.r2{background:#c0c0c0;color:#000;border-color:#a0a0a0}
@@ -60,16 +61,17 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 </head>
 <body><div id="root"></div>
 <script>
-const D={"techs":[{"name":"Stephen Duderstadt","role":"GM","wos":19,"wos_1p":19,"wos_3p":0,"dtc":2.29,"dtc_hp":null,"hp_wos":0,"response":100.0,"self_perf":100.0,"ftf":89.5,"sla_under":19,"sla_over":0,"sla_missing":0,"recalls":0,"stores":1,"rank_dtc":2,"rank_dtc_hp":0,"rank_response":1,"rank_self_perf":1,"rank_ftf":3,"score":4,"rank_overall":1},{"name":"Thomas Compton","role":"GM","wos":30,"wos_1p":29,"wos_3p":1,"dtc":2.3,"dtc_hp":null,"hp_wos":0,"response":94.74,"self_perf":97.44,"ftf":79.3,"sla_under":28,"sla_over":2,"sla_missing":0,"recalls":0,"stores":2,"rank_dtc":3,"rank_dtc_hp":0,"rank_response":3,"rank_self_perf":2,"rank_ftf":4,"score":8,"rank_overall":2},{"name":"Jorge Altamirano","role":"GM","wos":50,"wos_1p":48,"wos_3p":2,"dtc":1.69,"dtc_hp":null,"hp_wos":0,"response":89.47,"self_perf":96.3,"ftf":98.0,"sla_under":43,"sla_over":5,"sla_missing":0,"recalls":1,"stores":2,"rank_dtc":1,"rank_dtc_hp":0,"rank_response":5,"rank_self_perf":3,"rank_ftf":1,"score":9,"rank_overall":3},{"name":"Kody Ewing","role":"GM","wos":51,"wos_1p":48,"wos_3p":3,"dtc":2.42,"dtc_hp":null,"hp_wos":0,"response":97.22,"self_perf":94.64,"ftf":95.8,"sla_under":46,"sla_over":2,"sla_missing":0,"recalls":2,"stores":2,"rank_dtc":4,"rank_dtc_hp":0,"rank_response":2,"rank_self_perf":4,"rank_ftf":2,"score":10,"rank_overall":4},{"name":"James Bruening","role":"GM","wos":29,"wos_1p":24,"wos_3p":5,"dtc":3.15,"dtc_hp":0.13,"hp_wos":1,"response":92.31,"self_perf":83.87,"ftf":75.0,"sla_under":22,"sla_over":2,"sla_missing":0,"recalls":1,"stores":2,"rank_dtc":5,"rank_dtc_hp":3,"rank_response":4,"rank_self_perf":7,"rank_ftf":6,"score":19,"rank_overall":5},{"name":"Nicholas Grow","role":"GM","wos":53,"wos_1p":48,"wos_3p":5,"dtc":4.56,"dtc_hp":0.08,"hp_wos":1,"response":87.8,"self_perf":92.42,"ftf":78.0,"sla_under":42,"sla_over":7,"sla_missing":0,"recalls":2,"stores":2,"rank_dtc":7,"rank_dtc_hp":1,"rank_response":6,"rank_self_perf":5,"rank_ftf":5,"score":19,"rank_overall":5},{"name":"Victor Pino","role":"GM","wos":23,"wos_1p":21,"wos_3p":2,"dtc":3.77,"dtc_hp":0.1,"hp_wos":1,"response":70.59,"self_perf":88.46,"ftf":52.4,"sla_under":17,"sla_over":5,"sla_missing":0,"recalls":1,"stores":2,"rank_dtc":6,"rank_dtc_hp":2,"rank_response":7,"rank_self_perf":6,"rank_ftf":7,"score":21,"rank_overall":6},{"name":"Eian Palomino","role":"HVACR","wos":10,"wos_1p":10,"wos_3p":0,"dtc":0.75,"dtc_hp":0.13,"hp_wos":2,"response":100.0,"self_perf":100.0,"ftf":100.0,"sla_under":10,"sla_over":0,"sla_missing":0,"recalls":0,"stores":2,"rank_dtc":1,"rank_dtc_hp":2,"rank_response":1,"rank_self_perf":1,"rank_ftf":1,"score":5,"rank_overall":1},{"name":"Frank Shipp","role":"HVACR","wos":20,"wos_1p":20,"wos_3p":0,"dtc":1.59,"dtc_hp":0.06,"hp_wos":4,"response":100.0,"self_perf":100.0,"ftf":90.0,"sla_under":20,"sla_over":0,"sla_missing":0,"recalls":1,"stores":2,"rank_dtc":3,"rank_dtc_hp":1,"rank_response":1,"rank_self_perf":1,"rank_ftf":3,"score":6,"rank_overall":2},{"name":"Robert Howard","role":"HVACR","wos":12,"wos_1p":12,"wos_3p":0,"dtc":1.41,"dtc_hp":0.17,"hp_wos":2,"response":87.5,"self_perf":100.0,"ftf":100.0,"sla_under":10,"sla_over":2,"sla_missing":0,"recalls":0,"stores":3,"rank_dtc":2,"rank_dtc_hp":3,"rank_response":4,"rank_self_perf":1,"rank_ftf":1,"score":10,"rank_overall":3},{"name":"Mario Pelayo","role":"HVACR","wos":23,"wos_1p":23,"wos_3p":0,"dtc":3.68,"dtc_hp":0.65,"hp_wos":4,"response":78.57,"self_perf":100.0,"ftf":73.9,"sla_under":18,"sla_over":5,"sla_missing":0,"recalls":0,"stores":3,"rank_dtc":4,"rank_dtc_hp":4,"rank_response":5,"rank_self_perf":1,"rank_ftf":4,"score":14,"rank_overall":4},{"name":"Richard Palacios","role":"HVACR","wos":16,"wos_1p":16,"wos_3p":0,"dtc":4.43,"dtc_hp":1.6,"hp_wos":2,"response":90.0,"self_perf":100.0,"ftf":62.5,"sla_under":14,"sla_over":2,"sla_missing":0,"recalls":0,"stores":3,"rank_dtc":5,"rank_dtc_hp":5,"rank_response":3,"rank_self_perf":1,"rank_ftf":5,"score":14,"rank_overall":4},{"name":"Richard Sanchez","role":"FE","wos":18,"wos_1p":18,"wos_3p":0,"dtc":3.74,"dtc_hp":null,"hp_wos":0,"response":88.89,"self_perf":100.0,"ftf":61.11,"sla_under":16,"sla_over":2,"sla_missing":0,"recalls":1,"stores":9,"rank_dtc":1,"rank_dtc_hp":0,"rank_response":1,"rank_self_perf":1,"rank_ftf":1,"score":3,"rank_overall":1}],"goals":{"dtc":4.0,"dtc_hp":1.9,"response":85.0,"self_perf":72.0,"ftf":85.0},"meta":{"manager":"Michael Leanox","region":"367-A","period":"May 08\u2013Jun 07, 2026","refresh":"June 07, 2026","total_wos":354,"total_1p":336,"total_3p":18,"n_techs":13}};
-const RC={GM:'#0053e2',HVACR:'#0f7b6c',FE:'#b45309'};
+const D={"techs":[{"name":"Richard Sanchez","role":"FE","wos":18,"wos_1p":18,"wos_3p":0,"act_matched":0,"dtc":3.74,"dtc_hp":null,"hp_wos":0,"response":88.89,"self_perf":100.0,"ftf":61.11,"sla_under":16,"sla_over":2,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":9,"rank_dtc":1,"rank_dtc_hp":0,"rank_response":1,"rank_self_perf":1,"rank_ftf":1,"score":3,"rank_overall":1},{"name":"Kody Ewing","role":"GM","wos":47,"wos_1p":44,"wos_3p":3,"act_matched":0,"dtc":1.84,"dtc_hp":null,"hp_wos":0,"response":97.73,"self_perf":93.62,"ftf":97.73,"sla_under":43,"sla_over":1,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":1,"rank_dtc_hp":0,"rank_response":2,"rank_self_perf":3,"rank_ftf":2,"score":6,"rank_overall":2},{"name":"Stephen Duderstadt","role":"GM","wos":18,"wos_1p":18,"wos_3p":0,"act_matched":0,"dtc":2.06,"dtc_hp":null,"hp_wos":0,"response":100.0,"self_perf":100.0,"ftf":88.89,"sla_under":18,"sla_over":0,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":1,"rank_dtc":2,"rank_dtc_hp":0,"rank_response":1,"rank_self_perf":1,"rank_ftf":3,"score":4,"rank_overall":1},{"name":"Jorge Altamirano","role":"GM","wos":50,"wos_1p":48,"wos_3p":2,"act_matched":0,"dtc":2.4,"dtc_hp":0.3,"hp_wos":1,"response":79.17,"self_perf":96.0,"ftf":97.92,"sla_under":38,"sla_over":10,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":3,"rank_dtc_hp":4,"rank_response":7,"rank_self_perf":2,"rank_ftf":1,"score":16,"rank_overall":4},{"name":"Thomas Compton","role":"GM","wos":31,"wos_1p":29,"wos_3p":2,"act_matched":0,"dtc":3.22,"dtc_hp":null,"hp_wos":0,"response":82.76,"self_perf":93.55,"ftf":79.31,"sla_under":24,"sla_over":5,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":4,"rank_dtc_hp":0,"rank_response":5,"rank_self_perf":4,"rank_ftf":4,"score":13,"rank_overall":3},{"name":"James Bruening","role":"GM","wos":29,"wos_1p":24,"wos_3p":5,"act_matched":0,"dtc":3.41,"dtc_hp":0.15,"hp_wos":1,"response":95.83,"self_perf":82.76,"ftf":75.0,"sla_under":23,"sla_over":1,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":5,"rank_dtc_hp":2,"rank_response":3,"rank_self_perf":7,"rank_ftf":5,"score":17,"rank_overall":5},{"name":"Victor Pino","role":"GM","wos":23,"wos_1p":21,"wos_3p":2,"act_matched":0,"dtc":3.66,"dtc_hp":0.11,"hp_wos":2,"response":80.95,"self_perf":91.3,"ftf":52.38,"sla_under":17,"sla_over":4,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":6,"rank_dtc_hp":1,"rank_response":6,"rank_self_perf":5,"rank_ftf":7,"score":18,"rank_overall":6},{"name":"Nicholas Grow","role":"GM","wos":46,"wos_1p":41,"wos_3p":5,"act_matched":0,"dtc":3.86,"dtc_hp":0.19,"hp_wos":2,"response":82.93,"self_perf":89.13,"ftf":73.17,"sla_under":34,"sla_over":7,"sla_missing":0,"recalls":2,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":7,"rank_dtc_hp":3,"rank_response":4,"rank_self_perf":6,"rank_ftf":6,"score":20,"rank_overall":7},{"name":"Eian Palomino","role":"HVACR","wos":10,"wos_1p":10,"wos_3p":0,"act_matched":0,"dtc":0.62,"dtc_hp":0.33,"hp_wos":3,"response":90.0,"self_perf":100.0,"ftf":100.0,"sla_under":9,"sla_over":1,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":1,"rank_dtc_hp":2,"rank_response":2,"rank_self_perf":1,"rank_ftf":1,"score":6,"rank_overall":1},{"name":"Robert Howard","role":"HVACR","wos":12,"wos_1p":12,"wos_3p":0,"act_matched":0,"dtc":1.44,"dtc_hp":1.09,"hp_wos":2,"response":83.33,"self_perf":100.0,"ftf":100.0,"sla_under":10,"sla_over":2,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":3,"rank_dtc":2,"rank_dtc_hp":4,"rank_response":3,"rank_self_perf":1,"rank_ftf":1,"score":10,"rank_overall":2},{"name":"Frank Shipp","role":"HVACR","wos":20,"wos_1p":20,"wos_3p":0,"act_matched":0,"dtc":1.74,"dtc_hp":0.08,"hp_wos":4,"response":100.0,"self_perf":100.0,"ftf":90.0,"sla_under":20,"sla_over":0,"sla_missing":0,"recalls":1,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":2,"rank_dtc":3,"rank_dtc_hp":1,"rank_response":1,"rank_self_perf":1,"rank_ftf":3,"score":6,"rank_overall":1},{"name":"Mario Pelayo","role":"HVACR","wos":22,"wos_1p":22,"wos_3p":0,"act_matched":0,"dtc":3.46,"dtc_hp":0.65,"hp_wos":3,"response":81.82,"self_perf":100.0,"ftf":77.27,"sla_under":18,"sla_over":4,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":3,"rank_dtc":4,"rank_dtc_hp":3,"rank_response":4,"rank_self_perf":1,"rank_ftf":4,"score":12,"rank_overall":3},{"name":"Richard Palacios","role":"HVACR","wos":16,"wos_1p":16,"wos_3p":0,"act_matched":0,"dtc":4.47,"dtc_hp":1.13,"hp_wos":3,"response":81.25,"self_perf":100.0,"ftf":62.5,"sla_under":13,"sla_over":3,"sla_missing":0,"recalls":0,"pe_count":0,"avg_hrs":0,"avg_trips":0,"stores":3,"rank_dtc":5,"rank_dtc_hp":5,"rank_response":5,"rank_self_perf":1,"rank_ftf":5,"score":16,"rank_overall":4}],"goals":{"dtc":4.0,"dtc_hp":1.9,"response":85.0,"self_perf":72.0,"ftf":85.0},"meta":{"manager":"Michael Leanox","region":"367-A","period":"May 09\u2013Jun 08, 2026","refresh":"June 08, 2026","total_wos":342,"total_1p":323,"total_3p":19,"n_techs":13}};
+const RC={GM:'#0071ce',HVACR:'#0f7b6c',FE:'#b45309'};
 const RI={GM:'🔧',HVACR:'❄️',FE:'🍽️'};
 const RL={GM:'GM Technicians',HVACR:'HVACR Technicians',FE:'Food Equipment Technicians'};
-let curRole='All',dark=true;
+const sp=new URLSearchParams(location.search);
+let curRole=sp.get('role')||'All',dark=sp.get('dark')!=='0';
+const slug=n=>n.replace(/\s+/g,'-');
 const f2=(v,d=2)=>v==null?'—':Number(v).toFixed(d);
 const pct=v=>v==null?'—':Number(v).toFixed(1)+'%';
 const isOk=(v,g,lo)=>lo?v<=g:v>=g;
 const gc=b=>b?'var(--grn)':'var(--red)';
-const slug=n=>n.replace(/\s+/g,'-');
 
 function rankBadge(r){
   if(r===1)return'<span class="rbadge r1">🥇</span>';
@@ -77,18 +79,33 @@ function rankBadge(r){
   if(r===3)return'<span class="rbadge r3">🥉</span>';
   return`<span class="rbadge rn">#${r}</span>`;
 }
+
 function bar(val,goal,maxV,lo,suf){
   if(val==null)return'<div class="bw"><span style="color:var(--sub)">—</span></div>';
   const ok=isOk(val,goal,lo),w=Math.min(Math.abs(val)/maxV*100,100).toFixed(1),col=gc(ok);
   const lbl=suf==='d'?f2(val)+'d':pct(val);
   return`<div class="bw"><div class="bb"><div class="bf" style="width:${w}%;background:${col};opacity:.78"></div><span class="bv" style="color:${col}">${lbl}</span></div><div class="bl">${ok?'✓ on goal':'✗ off goal'}</div></div>`;
 }
+
+function cp(txt,btn){
+  navigator.clipboard.writeText(txt).catch(()=>{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta)});
+  if(btn){const o=btn.textContent;btn.textContent='Copied!';setTimeout(()=>btn.textContent=o,1500)}
+}
+
+function mkURL(tech,role){
+  const u=new URL(location.href.split('?')[0]);
+  if(!dark)u.searchParams.set('dark','0');
+  if(role&&role!=='All')u.searchParams.set('role',role);
+  if(tech)u.searchParams.set('tech',slug(tech));
+  return u.toString();
+}
+
 function teamStrip(){
-  const{meta,goals,techs}=D,t1=techs.filter(t=>t.wos_1p>0||t.dtc!=null);
-  const ad=t1.reduce((s,t)=>s+(t.dtc||0),0)/t1.length;
+  const{meta,goals,techs}=D,t1=techs.filter(t=>t.wos_1p>0);
+  const ad=t1.reduce((s,t)=>s+t.dtc,0)/t1.length;
   const ar=t1.reduce((s,t)=>s+(t.response||0),0)/t1.length;
   const as_=t1.reduce((s,t)=>s+(t.self_perf||0),0)/t1.length;
-  const af=t1.filter(t=>t.ftf!=null).reduce((s,t)=>s+(t.ftf||0),0)/Math.max(1,t1.filter(t=>t.ftf!=null).length);
+  const af=t1.reduce((s,t)=>s+(t.ftf||0),0)/t1.length;
   return`<div class="tbar"><div class="tin">
     <div class="kpi"><div class="kl">Team DTC</div><div class="kv ${isOk(ad,goals.dtc,true)?'ok':'warn'}">${f2(ad)}d</div><div class="ks">Goal ≤ ${goals.dtc}d</div></div>
     <div class="kpi"><div class="kl">Response</div><div class="kv ${isOk(ar,goals.response,false)?'ok':'warn'}">${pct(ar)}</div><div class="ks">Goal ≥ ${goals.response}%</div></div>
@@ -99,6 +116,7 @@ function teamStrip(){
     <div class="kpi"><div class="kl">Period (30 days)</div><div class="kv" style="font-size:.85rem;padding-top:3px">${meta.period}</div><div class="ks">Refreshed ${meta.refresh}</div></div>
   </div></div>`;
 }
+
 function controls(){
   const roles=[...new Set(D.techs.map(t=>t.role))];
   const pills=['All',...roles].map(r=>{
@@ -108,46 +126,56 @@ function controls(){
   return`<div class="ctrl">
     <input class="srch" id="srch" type="text" placeholder="🔍 Search technician…" oninput="doSearch(this.value)">
     <div class="pills">${pills}</div>
+    <button class="cbtn" onclick="cp(mkURL(null,curRole),this)">🔗 Share page</button>
     <button class="cbtn" onclick="toggleTheme()">☀️/🌙 Theme</button>
   </div>`;
 }
+
 function roleSection(role){
   const grp=D.techs.filter(t=>t.role===role).sort((a,b)=>a.rank_overall-b.rank_overall);
   const col=RC[role],t1=grp.reduce((s,t)=>s+t.wos_1p,0),t3=grp.reduce((s,t)=>s+t.wos_3p,0);
   const top3=grp.slice(0,3).map((t,i)=>
     `<span class="pod">${['🥇','🥈','🥉'][i]} ${t.name.split(' ')[0]} — DTC ${f2(t.dtc)}d · FTF ${pct(t.ftf)}</span>`).join('');
+
   const rows=grp.map(t=>{
     const allOk=[isOk(t.dtc,D.goals.dtc,true),isOk(t.response,D.goals.response,false),
-      isOk(t.self_perf,D.goals.self_perf,false)].every(Boolean);
+      isOk(t.self_perf,D.goals.self_perf,false),isOk(t.ftf,D.goals.ftf,false)].every(Boolean);
     const init=t.name.split(' ').map(w=>w[0]).slice(0,2).join(''),sl=slug(t.name);
+    const pctM=t.wos_1p>0?Math.round(t.act_matched/t.wos_1p*100):0;
+    const url=mkURL(t.name,role);
     const det=`<tr id="det-${sl}" class="det hide"><td colspan="8" style="padding:0"><div class="dp">
       <div class="dc"><div class="dl">DTC</div>
         <div class="dv ${isOk(t.dtc,D.goals.dtc,true)?'ok':'bad'}">${f2(t.dtc)}d</div>
-        <div class="dg">Goal ≤ ${D.goals.dtc}d · Rank #${t.rank_dtc}</div></div>
+        <div class="dg">Goal ≤ ${D.goals.dtc}d · Rank #${t.rank_dtc} of ${grp.length}</div>
+        <div class="ds">Calendar days: assignment → completion · ${pctM}% WOs activity-matched</div></div>
       <div class="dc"><div class="dl">DTC HP</div>
-        <div class="dv ${t.dtc_hp==null||isOk(t.dtc_hp,D.goals.dtc_hp,true)?'ok':'bad'}">${f2(t.dtc_hp)}d</div>
-        <div class="dg">Goal ≤ ${D.goals.dtc_hp}d · Rank #${t.rank_dtc_hp||'—'}</div></div>
+        <div class="dv ${isOk(t.dtc_hp,D.goals.dtc_hp,true)?'ok':'bad'}">${f2(t.dtc_hp)}d</div>
+        <div class="dg">Goal ≤ ${D.goals.dtc_hp}d · Rank #${t.rank_dtc_hp} of ${grp.length}</div>
+        <div class="ds">Pe / P1 / P2 / P3 priorities only</div></div>
       <div class="dc"><div class="dl">Response Time</div>
         <div class="dv ${isOk(t.response,D.goals.response,false)?'ok':'bad'}">${pct(t.response)}</div>
-        <div class="dg">Goal ≥ ${D.goals.response}% · Rank #${t.rank_response}</div>
+        <div class="dg">Goal ≥ ${D.goals.response}% · Rank #${t.rank_response} of ${grp.length}</div>
         <div class="ds">✅ ${t.sla_under} Under &nbsp;❌ ${t.sla_over} Over &nbsp;⚠️ ${t.sla_missing} Missing</div></div>
       <div class="dc"><div class="dl">Self Performance</div>
         <div class="dv ${isOk(t.self_perf,D.goals.self_perf,false)?'ok':'bad'}">${pct(t.self_perf)}</div>
-        <div class="dg">Goal ≥ ${D.goals.self_perf}% · Rank #${t.rank_self_perf}</div>
-        <div class="ds">1P: ${t.wos_1p} &nbsp;3P: ${t.wos_3p} &nbsp;Total: ${t.wos}</div></div>
+        <div class="dg">Goal ≥ ${D.goals.self_perf}% · Rank #${t.rank_self_perf} of ${grp.length}</div>
+        <div class="ds">1P: ${t.wos_1p} &nbsp; 3P: ${t.wos_3p} &nbsp; Total: ${t.wos}</div></div>
       <div class="dc"><div class="dl">First Time Fix</div>
-        <div class="dv ${t.ftf==null||isOk(t.ftf,D.goals.ftf,false)?'ok':'bad'}">${pct(t.ftf)}</div>
-        <div class="dg">Goal ≥ ${D.goals.ftf}% · display only, not scored</div>
-        <div class="ds">Recalls: ${t.recalls}</div></div>
-      <div class="dc"><div class="dl">Stores</div>
-        <div class="dv">${t.stores}</div>
-        <div class="dg">stores covered this period</div></div>
+        <div class="dv ${isOk(t.ftf,D.goals.ftf,false)?'ok':'bad'}">${pct(t.ftf)}</div>
+        <div class="dg">Goal ≥ ${D.goals.ftf}% · Rank #${t.rank_ftf} of ${grp.length}</div>
+        <div class="ds">Recalls: ${t.recalls} &nbsp; Pe-Emergency: ${t.pe_count}</div></div>
+      <div class="dc"><div class="dl">On-Site Avg</div>
+        <div class="dv">${f2(t.avg_hrs)}h</div>
+        <div class="dg">${f2(t.avg_trips)} avg trips / WO</div>
+        <div class="ds">${t.stores} stores covered this period</div></div>
       <div class="dc" style="grid-column:1/-1">
-        <div class="dl">Composite Score — lower is better</div>
-        <div class="dv">${t.score} pts &nbsp;${rankBadge(t.rank_overall)}</div>
-        <div class="ds">DTC #${t.rank_dtc} + HP #${t.rank_dtc_hp} + Self #${t.rank_self_perf} + Response #${t.rank_response} = ${t.score} &nbsp;<span style="color:var(--amb);font-size:.58rem">(FTF not scored — matches MetricRank)</span></div>
+        <div class="dl">Composite Score (DTC + DTC HP + Self Perf + Response — 4 metrics — lower = better)</div>
+        <div class="dv">${t.score} pts &nbsp;<span style="font-size:.85rem;font-weight:400;color:var(--sub)">${rankBadge(t.rank_overall)} of ${grp.length} in ${RL[role]}</span></div>
+        <div class="ds" style="margin-top:4px">DTC #${t.rank_dtc} + DTC HP #${t.rank_dtc_hp} + Self Perf #${t.rank_self_perf} + Response #${t.rank_response} = ${t.score} &nbsp;<span style="color:var(--amb);font-size:.58rem">(FTF display only — not scored)</span></div>
+        <button class="lbtn" onclick="event.stopPropagation();cp('${url}',this)">🔗 Share — ${t.name.split(' ')[0]}</button>
       </div>
     </div></td></tr>`;
+
     return`<tr class="tr" data-slug="${sl}" data-name="${t.name.toLowerCase()}" data-role="${role}" onclick="toggleDet('${sl}')">
       <td style="text-align:center">${rankBadge(t.rank_overall)}</td>
       <td><div class="nc">
@@ -163,11 +191,11 @@ function roleSection(role){
       <td style="text-align:center"><span class="sc">${t.score}</span></td>
     </tr>${det}`;
   }).join('');
+
   return`<div class="sec" id="sec-${role}" data-role="${role}">
     <div class="shdr" style="border-left:4px solid ${col}">
       <div class="sl"><span class="sico">${RI[role]}</span>
-        <div><div class="stitle">${RL[role]}</div>
-        <div class="scnt">${grp.length} techs · ${t1} 1P + ${t3} 3P WOs · ranked by composite score (standard rank)</div></div>
+        <div><div class="stitle">${RL[role]}</div><div class="scnt">${grp.length} techs · ${t1} 1P + ${t3} 3P WOs · ranked by composite score (dense rank)</div></div>
       </div><div class="podium">${top3}</div>
     </div>
     <table class="tbl"><thead><tr>
@@ -181,18 +209,21 @@ function roleSection(role){
     </tr></thead><tbody>${rows}</tbody></table>
   </div>`;
 }
+
 function noteHTML(){
   return`<div class="note"><div class="nb">
-    <b>Metric Definitions</b> ·
-    <b>DTC:</b> Avg days to complete (1P WOs). Goal ≤ 4d. ·
-    <b>DTC HP:</b> Same, high-priority only. Goal ≤ 1.9d. ·
-    <b>Response:</b> Under-SLA ÷ non-Missing WOs, 1P. Goal ≥ 85%. ·
-    <b>Self Perf:</b> 1P ÷ (1P+3P). Goal ≥ 72%. ·
-    <b>FTF:</b> No-recall WOs ÷ total 1P. Goal ≥ 85% — display only, not scored. ·
-    <b>Ranking:</b> Standard rank (ties share rank, gaps between groups). Score = sum of 4 metric ranks. Matches MetricRank/Tableau exactly. ·
-    <b>Source:</b> MetricRank Tableau dashboard — tableau-realestate.walmart.com · Region 367-A · Last 30 Days.
+    <b>Metric Definitions</b> &nbsp;·&nbsp;
+    <b>DTC:</b> Calendar days from first check-in to last check-out (inclusive), 1P activity-matched WOs only. Goal ≤ 4d. &nbsp;·&nbsp;
+    <b>DTC HP:</b> Same, Pe/P1/P2/P3 priorities only. Goal ≤ 1.9d. &nbsp;·&nbsp;
+    <b>Response:</b> Under-SLA WOs ÷ non-Missing WOs, 1P. Goal ≥ 85%. &nbsp;·&nbsp;
+    <b>Self Perf:</b> 1P WOs ÷ (1P+3P). Goal ≥ 72%. &nbsp;·&nbsp;
+    <b>FTF:</b> WOs with no recall ÷ total 1P WOs. Goal ≥ 85%. &nbsp;·&nbsp;
+    <b>Ranking:</b> Dense rank within role group (ties share rank, no gaps). Composite score = sum of 5 metric ranks. &nbsp;·&nbsp;
+    <b>Filter:</b> <code>package7=YES · in_scope=Yes · is_completed=TRUE · sla=TRUE</code> · excl. Scheduled Service / Tech Initiated / P7 · ${D.meta.period}. &nbsp;·&nbsp;
+    <b>Sources:</b> <code>semantic_fs_sc_workorder</code> + <code>semantic_fs_technician_activity</code> · re-ods-prod · Region 367-A.
   </div></div>`;
 }
+
 function render(){
   if(!dark)document.body.classList.add('light');
   const roles=[...new Set(D.techs.map(t=>t.role))];
@@ -202,14 +233,18 @@ function render(){
       <div class="hdr-r">Manager: <b>${D.meta.manager}</b> &nbsp;|&nbsp; Region <b>${D.meta.region}</b> &nbsp;|&nbsp; <b>${D.meta.period}</b> &nbsp;|&nbsp; 30-Day Window</div>
     </div></div>
     ${teamStrip()}${controls()}${roles.map(roleSection).join('')}${noteHTML()}`;
+  if(curRole!=='All')applyRole(curRole);
 }
+
 function toggleDet(sl){
   const d=document.getElementById('det-'+sl),r=document.querySelector('[data-slug="'+sl+'"]');
   if(!d)return;d.classList.toggle('hide');r&&r.classList.toggle('open',!d.classList.contains('hide'));
 }
 function setRole(r,btn){curRole=r;
   document.querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));btn&&btn.classList.add('on');
-  document.querySelectorAll('.sec[data-role]').forEach(s=>s.classList.toggle('sh',r!=='All'&&s.dataset.role!==r));}
+  applyRole(r);}
+function applyRole(r){document.querySelectorAll('.sec[data-role]').forEach(s=>
+  s.classList.toggle('sh',r!=='All'&&s.dataset.role!==r));}
 function doSearch(q){const ql=q.toLowerCase();
   document.querySelectorAll('tr.tr').forEach(row=>{const show=!q||row.dataset.name.includes(ql);
     row.classList.toggle('hide',!show);
